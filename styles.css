@@ -1,0 +1,230 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('background-image.png') no-repeat center center/cover;
+  background-size: cover;
+  color: #fff;
+  font-size: 16px;
+  overflow: hidden;
+  flex-direction: column;
+  animation: background-move 60s linear infinite;
+}
+
+/* Animate background movement */
+@keyframes background-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}
+
+/* Main Content */
+.main-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Header with logo aligned to the left-middle */
+header {
+  position: absolute;
+  top: 45%; /* Move slightly up */
+  left: 70px; /* Move more to the right */
+  transform: translateY(-50%); /* Adjust vertical position */
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo Styling */
+.logo-container .logo {
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+/* Logo hover effect */
+.logo-container .logo:hover {
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+/* Content Box */
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 40px 50px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px); /* Soft blur effect */
+  position: relative;
+}
+
+.content:before {
+  content: '';
+  background: url('patterns.png') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1; /* To keep the background pattern behind content */
+}
+
+.content h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.7); /* Glowing text effect */
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-out forwards 0.5s;
+}
+
+.cta-button {
+  padding: 15px 30px;
+  background-color: #1E90FF;
+  color: white;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  text-decoration: none; /* Remove underline */
+}
+
+.cta-button:hover {
+  background-color: #4682B4;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cta-icon {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.cta-button:hover .cta-icon {
+  transform: rotate(15deg); /* Rotate the icon on hover for more effect */
+}
+
+/* Text Fade-In Effect */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Hover Effect on Button */
+.hover-effect:hover {
+  transform: scale(1.1); /* Subtle scaling effect */
+}
+
+/* Footer */
+footer {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  font-size: 1em;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  margin-top: 30px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Loading Screen */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('image-loading.jpg') no-repeat center center/cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.loading-spinner {
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid #fff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .content {
+    padding: 30px;
+    max-width: 80%;
+  }
+
+  .content h1 {
+    font-size: 2em;
+  }
+
+  .cta-button {
+    font-size: 1em;
+  }
+
+  header {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}

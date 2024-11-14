@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPS Plan Expired - Zoniex Cloud</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-overlay">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <div class="main-content" id="mainContent">
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="Zoniex Cloud Logo" class="logo">
+      </div>
+    </header>
+
+    <main>
+      <section class="content">
+        <div class="message-container">
+          <h1 class="fade-in">Oops! Your VPS Plan has Expired.</h1>
+          <p class="fade-in">Thank you for using Zoniex Cloud. To continue using our services, please renew your VPS plan by opening a ticket.</p>
+          <a href="https://discord.com/invite/yourdiscordlink" class="cta-button hover-effect">
+            <img src="renew-icon.png" alt="Renew Icon" class="cta-icon"> Renew Now
+          </a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Zoniex Cloud. All rights reserved.</p>
+  </footer>
+
+  <script>
+    setTimeout(function() {
+      document.querySelector('.loading-overlay').style.opacity = '0';
+      document.querySelector('.loading-overlay').style.transition = 'opacity 0.3s ease';
+
+      setTimeout(function() {
+        document.querySelector('.loading-overlay').style.display = 'none';
+        document.getElementById('mainContent').style.opacity = '1';
+        document.getElementById('mainContent').style.transition = 'opacity 0.3s ease';
+      }, 300);
+    }, 1000);
+  </script>
+</body>
+</html>
